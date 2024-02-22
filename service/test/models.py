@@ -29,6 +29,7 @@ class Employee(models.Model):
         verbose_name = "Employee"
 
 
+
     def get_statistics(self, month, year):
         orders = Order.objects.filter(employee=self, date__month=month, date__year=year)
         response = orders.aggregate(clients=Count('client', distinct=True))
